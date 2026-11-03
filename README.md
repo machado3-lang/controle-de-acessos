@@ -53,6 +53,11 @@ docker compose up -d --build
 - Frontend: `http://localhost:81`
 - Backend: `http://localhost:3101`
 
+## Repositórios
+
+- **Controle de acessos:** https://github.com/machado3-lang/controle-de-acessos
+- **Sistema de pontos:** https://github.com/machado3-lang/sistema-de-pontos
+
 ## Documentação
 
 - [face-web/DOCUMENTACAO.md](face-web/DOCUMENTACAO.md) — visão funcional, API, protocolo dos equipamentos e banco JSON.
