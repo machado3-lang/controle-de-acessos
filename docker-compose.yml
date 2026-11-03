@@ -1,0 +1,31 @@
+services:
+  # ── Backend ─────────────────────────────────────────────────────────────────
+  face-cloud:
+    build: ./face-cloud
+    container_name: face-cloud
+    restart: unless-stopped
+    ports:
+      - "${FACECLOUD_PORT:-3101}:3100"
+    volumes:
+      - face-cloud-data:/app/data
+    environment:
+      - PORT=3100
+      - API_TOKEN=${API_TOKEN:-face-cloud-token-2024}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3100/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ── Frontend ────────────────────────────────────────────────────────────────
+  face-web:
+    build: ./face-web
+    container_name: face-web
+    restart: unless-stopped
+    ports:
+      - "${FACEWEB_PORT:-81}:80"
+    depends_on:
+      - face-cloud
+
+volumes:
+  face-cloud-data:

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-ssr/
+*.log
+.env
+.env.local
+.env.*.local
+.DS_Store
+
+# Dados de runtime do backend
+face-cloud/data/*.json
+!face-cloud/data/.gitkeep
